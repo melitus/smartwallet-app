@@ -4,6 +4,8 @@ import { EthereumLib, EthereumLibInterface } from 'src/lib/ethereum'
 import { EncryptionLib, EncryptionLibInterface } from 'src/lib/crypto'
 import { Storage } from 'src/lib/storage/storage'
 import { KeyChain, KeyChainInterface } from 'src/lib/keychain'
+import { TypeOrmInterface } from 'src/lib/typeOrmConfig'
+
 
 // TODO Type config better
 export class BackendMiddleware {
@@ -12,6 +14,8 @@ export class BackendMiddleware {
   storageLib: Storage
   encryptionLib: EncryptionLibInterface
   keyChainLib: KeyChainInterface
+  ConnectionLib: TypeOrmInterface
+
 
   constructor(config: { fuelingEndpoint: string, typeOrmConfig: any }) {
     this.ethereumLib = new EthereumLib(config.fuelingEndpoint)
